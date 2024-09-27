@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED Control</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+         
+        // Firebase configuration object containing necessary project details
+        var firebaseConfig = {
+            apiKey: "AIzaSyDctp8Ypd5e2GkZyNn2GRuurfsES5QaGuY",  // API key for accessing Firebase services
+            authDomain: "traffic-71265.firebaseapp.com",  // Auth domain for Firebase authentication
+            databaseURL: "https://traffic-71265-default-rtdb.asia-southeast1.firebasedatabase.app",  // URL to the Firebase Realtime Database
+            projectId: "traffic-71265",  // Unique identifier for the Firebase project
+            storageBucket: "traffic-71265.appspot.com",  // Storage bucket for storing files
+            messagingSenderId: "731780966996",  // Sender ID for Firebase Cloud Messaging
+            appId: "1:731780966996:web:0487068872a850a6645bc1",  // Unique identifier for the app
+            measurementId: "G-T9NHLDSSMN"  // Measurement ID for analytics
+        };
+
+        // Initialize Firebase with the provided configuration
+        firebase.initializeApp(firebaseConfig);
+
+        // Function to toggle the state of the LED
+        function toggleLED(color) {
+            // Reference to the specific LED state in the Firebase Realtime Database
+            var ledRef = firebase.database().ref('leds/' + color);
+
+            // Fetch the current state of the specified LED from the database
+            ledRef.once('value').then(function (snapshot) {
+                // Retrieve the current state (true or false) from the snapshot
+                var currentState = snapshot.val();
+                // Update the LED state in the database by setting it to the opposite of the current state
+                ledRef.set(!currentState);  // This toggles the state of the LED
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>LED Control</h1>
+    <div class="traffic-light">
+        <div id="red-light"></div>
+        <div id="green-light"></div>
+        <div id="blue-light"></div>
+    </div>
+    <button id="red-button" onclick="toggleLED('red')">Red LED</button>
+    <button id="green-button" onclick="toggleLED('green')">Green LED</button>
+    <button id="blue-button" onclick="toggleLED('blue')">Blue LED</button>
+</body>
+</html>
