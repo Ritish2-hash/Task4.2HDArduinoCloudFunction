@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.traffic-light {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 20px;
+    width: 120px;
+}
+
+.traffic-light div {
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+    border-radius: 50%;
+    background-color: #111;
+    transition: background-color 0.3s ease;
+}
+
+/* Colors for the traffic light circles */
+#red-light {
+    background-color: #c0392b;
+}
+
+#green-light {
+    background-color: #27ae60;
+}
+
+#blue-light {
+    background-color: #2980b9;
+}
+
+/* Button styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #34495e;
+}
+
+
+button#red-button:hover {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+button#green-button:hover {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+button#blue-button:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
