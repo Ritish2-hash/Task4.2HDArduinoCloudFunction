@@ -17,7 +17,7 @@ char pass[] = "123456789";   // Define the password for the WiFi network
 // Firebase configuration
 #define FIREBASE_HOST "https://traffic-71265-default-rtdb.asia-southeast1.firebasedatabase.app/" // The URL of your Firebase Realtime Database
 #define FIREBASE_AUTH "AIzaSyDctp8Ypd5e2GkZyNn2GRuurfsES5QaGuY" // The Firebase Web API Key, used for authenticating requests
-#define FIREBASE_PATH "/leds"  // The specific path in the Firebase database where LED states are stored
+#define FIREBASE_PATH "/leds.json"  // The specific path in the Firebase database where LED states are stored
 
 // Pin assignments for LEDs
 int redLed = 2;     // Assigning pin 2 to the red LED
